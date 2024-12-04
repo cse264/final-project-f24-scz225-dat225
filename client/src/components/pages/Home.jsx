@@ -14,6 +14,7 @@ export default function Home() {
   const navigate = useNavigate();
   const [plantItems, setPlantItems] = useState([]); 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const paid = localStorage.getItem('paid'); 
 
   useEffect(() => {
     const token = localStorage.getItem('auth_token');
@@ -27,6 +28,7 @@ export default function Home() {
   useEffect(() => {
     if (isAuthenticated) {
       const userId = localStorage.getItem('id'); 
+      
       getPlants(userId)
         .then((data) => {
           console.log('Fetched plants:', data);
@@ -40,7 +42,7 @@ export default function Home() {
 
   const onDelete = (plantId) => {
     const originalPlantItems = [...plantItems];
-    setPlantItems((prevItems) => prevItems.filter((plant) => plant.plantId !== plantId));
+    setPlantItems((prevItems) => prevItems.filter((plant) => plant.plantid !== plantId));
     deletePlant(plantId)
       .then(() => {
         toast({
@@ -61,9 +63,10 @@ export default function Home() {
   };
 
   const onWater = (plantId) => {
+    console.log("check plant id", plantId)
     setPlantItems((prevItems) =>
       prevItems.map((plant) =>
-        plant.plantId === plantId && plant.water_done < plant.water_frequency
+        plant.plantid === plantId && plant.water_done < plant.water_frequency
           ? { ...plant, water_done: plant.water_done + 1 }
           : plant
       )
@@ -73,7 +76,7 @@ export default function Home() {
         if (updatedPlant) {
           setPlantItems((prevItems) =>
             prevItems.map((plant) =>
-              plant.plantId === updatedPlant.plantId ? updatedPlant : plant
+              plant.plantid === updatedPlant.plantid ? updatedPlant : plant
             )
           );
           toast({
@@ -92,6 +95,7 @@ export default function Home() {
         });
       });
   };
+
   const onGetTips = () => {
     let tip = getRandomPlantTip();
     toast({
@@ -109,7 +113,7 @@ export default function Home() {
               <CardHeader className="relative">
                 <button
                   className="absolute top-2 right-2 text-gray-500 hover:text-red-700 focus:outline-none text-3xl pr-2"
-                  onClick={() => onDelete(plant.plantId)}
+                  onClick={() => onDelete(plant.plantid)}
                 >
                   ✕
                 </button>
@@ -141,12 +145,12 @@ export default function Home() {
               <CardFooter className="space-x-5">
                 <Button
                   variant="water"
-                  onClick={() => onWater(plant.plantId)}
+                  onClick={() => onWater(plant.plantid)}
                   disabled={plant.water_done >= plant.water_frequency}
                 >
                   Water
                 </Button>
-                {user.paid && (
+                {paid === "true" && (
                 <Button 
                 variant="tips"
                 onClick={() => onGetTips()}
