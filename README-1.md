@@ -4,9 +4,9 @@
 
 ### Team Members
 
-* Layan Suleiman - Frontend/Backend API Routes
-* Dariia Tyshchenko - Database Management and Setup
-* Sarah Zwart - Frontend UI
+* Layan Suleiman(las225@lehigh.edu) - Frontend/Backend API Routes
+* Dariia Tyshchenko(dat225@lehigh.edu) - Database Management and Setup
+* Sarah Zwart(scz225@lehigh.edu) - Frontend UI
 
 ### Functionality
 
@@ -33,7 +33,6 @@ The purpose of our app is to allow users to add plants to their online garden an
 
 #### Server & Client .env information stored here: 
 https://docs.google.com/document/d/12g1ZreNIKPxC5CjBjS5A4CKYUGV3JYufY2xj9aawDiQ/edit?usp=sharing
-
 
 
 ### RUN BOTH CLIENT AND SERVER AT SAME TIME
