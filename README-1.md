@@ -31,7 +31,8 @@ The purpose of our app is to allow users to add plants to their online garden an
 
 ### Add .env file to root of server folder & client folder
 
-#### Server & Client .env information : https://docs.google.com/document/d/12g1ZreNIKPxC5CjBjS5A4CKYUGV3JYufY2xj9aawDiQ/edit?usp=sharing
+#### Server & Client .env information stored here: 
+https://docs.google.com/document/d/12g1ZreNIKPxC5CjBjS5A4CKYUGV3JYufY2xj9aawDiQ/edit?usp=sharing
 
 
 
