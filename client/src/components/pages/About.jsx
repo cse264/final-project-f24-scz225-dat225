@@ -4,14 +4,12 @@ import { useNavigate } from "react-router-dom";
 export default function About() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
-
-  // Check if user is authenticated by checking token in localStorage
   useEffect(() => {
     const token = localStorage.getItem("auth_token");
     if (!token) {
-      navigate("/login");  // Redirect to login if token is not found
+      navigate("/login");  
     } else {
-      setIsAuthenticated(true); // Set authenticated state if token exists
+      setIsAuthenticated(true); 
     }
   }, [navigate]);
 

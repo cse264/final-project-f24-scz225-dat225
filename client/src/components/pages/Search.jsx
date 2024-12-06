@@ -14,17 +14,16 @@ export default function SearchPage() {
   const [containerHeight, setContainerHeight] = useState("auto");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
-  const userId = localStorage.getItem('id');  // Get user ID from localStorage
+  const userId = localStorage.getItem('id');  
   useEffect(() => {
     const token = localStorage.getItem('auth_token');
     if (!token) {
-      navigate('/');  // Redirect to login if not authenticated
+      navigate('/');  
     } else {
       setIsAuthenticated(true); 
     }
   }, [navigate]);
-
-  // Handle search and fetch plant data from the API
+  
   const handleSearch = async () => {
     if (!searchTerm.trim()) return;
     setLoading(true);

@@ -1,30 +1,59 @@
-# Final Project
+# Plant Pal
 
-## Due Last day of Class
-## First report due Monday Oct 28, 2024
+## Project Description
 
-### Build a web app in a team of 4-5
+### Team Members
 
-### Requirements:
-* Must have user accounts and different user roles (like user/Admin, free/paid, etc)
-* Must use a database (you choose)
-* Must have interactive UI (of any kind)
-* Must use a library or framework not discussed/used in class
-* Must use an outside REST API in some way (Outside as in external, like the Reddit API, etc)
+* Layan Suleiman(las225@lehigh.edu) - Frontend/Backend API Routes
+* Dariia Tyshchenko(dat225@lehigh.edu) - Database Management and Setup
+* Sarah Zwart(scz225@lehigh.edu) - Frontend UI
 
-* Feel free to build off other projects and frameworks. For example [https://github.com/sahat/hackathon-starter] is a great starter project that you can build on top of. 
+### Functionality
 
-### Instructions
-Build your team and write a document describing your application to me by Monday Oct 28, 2024. Email this document to me and the TA for this course (Xinhui Chen xic721@lehigh.edu)  I will approve your web application idea. In your paper, include:
-* the name of your application
-* Name and roles of all your team members
-* its functionality (how does it meet each of the requirements listed above - list each requirement along with your will fulfill it)
-* user story/use case (what happens when a user visits your application, what can they do, etc)
-* technical design (what is your tech stack)
+The purpose of our app is to allow users to add plants to their online garden and keep track of when to water them. The app also gives tips depending on if it is a paid/unpaid user. 
+
+### User Story
+
+* As a unpaid/paid user, I can login via my Google Account, to protect my plant information.
+* As a unpaid/paid user, I want to search for a plant so that I can add to my garden
+* As a paid user, I want to receive plant tips so that I can better take care of my plants
+* As a unpaid/paid user, I want to be able to keep track of my plants watering status so that my plants flourish
+* As a unpaid/paid user I want to be able to hit the water button so that I can water my plant
+
+### Technical Design
+
+* Frontend - Vite + React, Javascript, Shadcn + Tailwind CSS, Axios, Google OAuth
+* Backend - Express Server 
+* Database - ElephantSQL
+* API - Perenual Plant API, Google Oauth API
+
+## How to run application:
+
+### Add .env file to root of server folder & client folder
+
+#### Server & Client .env information stored here: 
+https://docs.google.com/document/d/12g1ZreNIKPxC5CjBjS5A4CKYUGV3JYufY2xj9aawDiQ/edit?usp=sharing
+
+### To login as a paid user use this email:
+
+Gmail: plantpal264@gmail.com
+Password: WebDevel0pment2024
+
+### To login in as an unpaid user, use your email
 
 
-### Final deliverable due end of the semester:
-* Codebase in Github Repo
-* README describing your project, with all the information outlined above (team members, application name, description, etc). You will also include detailed instructions of how to install and run your application, and what API keys, databases, etc are needed to run your application.
-* Final Presentation and Demo
-  * You will prepare a 5 minute presentation and demo of your application in class during the last week of classes
+
+### RUN BOTH CLIENT AND SERVER AT SAME TIME
+
+### Server:
+
+1. cd server
+2. npm install
+3. npm run dev
+
+### Client:
+
+1. cd client
+2. npm install
+3. npm run dev
+

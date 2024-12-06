@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Login() {
-  const [error, setError] = useState(''); // To store error message
+  const [error, setError] = useState(''); 
   const navigate = useNavigate();
 
   const responseMessage = async (response) => {
@@ -17,7 +17,7 @@ export default function Login() {
         token: response.credential,
       });
       console.log("WE ARE HERE", data);
-      localStorage.setItem('auth_token', response.credential); // Store token
+      localStorage.setItem('auth_token', response.credential); 
       console.log("id please be right", data.user.userid)
       localStorage.setItem('id', data.user.userid)
       localStorage.setItem('paid', data.user.paid)
