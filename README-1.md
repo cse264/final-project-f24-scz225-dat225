@@ -6,7 +6,7 @@
 
 * Layan Suleiman - Frontend/Backend API Routes
 * Dariia Tyshchenko - Database Management and Setup
-* Sarah Zwart - Frontend 
+* Sarah Zwart - Frontend UI
 
 ### Functionality
 
