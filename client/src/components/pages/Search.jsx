@@ -6,8 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import { addPlant } from "@/api/api";
 import { useToast } from "@/hooks/use-toast";
 
+//page to search for plants and add them to your garden
 export default function SearchPage() {
   const { toast } = useToast();
+  //initialize all states
   const [searchTerm, setSearchTerm] = useState("");
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -24,12 +26,12 @@ export default function SearchPage() {
     }
   }, [navigate]);
   
-  const handleSearch = async () => {
+  const handleSearch = async () => { //fetch list of plants
     if (!searchTerm.trim()) return;
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://perenual.com/api/species-list?key=${import.meta.env.VITE_PLANT_API_KEY}&q=${searchTerm}`
+        `https://perenual.com/api/species-list?key=${import.meta.env.VITE_PLANT_API_KEY}&q=${searchTerm}` //pull from api based on search term
       );
       const data = response.data.data;
       console.log("Fetched plants:", data);
@@ -43,7 +45,7 @@ export default function SearchPage() {
   };
 
   
-  const handleAddPlant = async (common_name) => {
+  const handleAddPlant = async (common_name) => { //add specific plants to garden
     if (!userId) {
       alert('User not authenticated. Please log in.');
       return;
@@ -70,6 +72,7 @@ export default function SearchPage() {
     }
   }, [plants]);
 
+  //design of search bar and how the fetched results are displayed
   return isAuthenticated ? (
     <div
       className="flex flex-col items-center w-screen bg-gradient-to-br from-pink-200 via-emerald-100 to-blue-200 p-6 min-h-screen"

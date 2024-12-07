@@ -12,11 +12,12 @@ import getRandomPlantTip from "@/api/api";
 export default function Home() {
   const { toast } = useToast();
   const navigate = useNavigate();
+  //initialize all our states
   const [plantItems, setPlantItems] = useState([]); 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const paid = localStorage.getItem('paid'); 
 
-  useEffect(() => {
+  useEffect(() => { //check log in 
     const token = localStorage.getItem('auth_token');
     if (!token) {
       navigate('/');  
@@ -26,7 +27,7 @@ export default function Home() {
   }, [navigate]);
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated) { // users garden of plants
       const userId = localStorage.getItem('id'); 
       
       getPlants(userId)
@@ -40,7 +41,7 @@ export default function Home() {
     }
   }, [isAuthenticated]);
 
-  const onDelete = (plantId) => {
+  const onDelete = (plantId) => { //delete plant 
     const originalPlantItems = [...plantItems];
     setPlantItems((prevItems) => prevItems.filter((plant) => plant.plantid !== plantId));
     deletePlant(plantId)
@@ -62,7 +63,7 @@ export default function Home() {
       });
   };
 
-  const onWater = (plantId) => {
+  const onWater = (plantId) => { //water the plants 
     console.log("check plant id", plantId)
     setPlantItems((prevItems) =>
       prevItems.map((plant) =>
@@ -96,7 +97,7 @@ export default function Home() {
       });
   };
 
-  const onGetTips = () => {
+  const onGetTips = () => { //random plant tip
     let tip = getRandomPlantTip();
     toast({
       description: tip,
@@ -104,6 +105,7 @@ export default function Home() {
       variant: "tip",
     });
   }
+  //each plant in a box, adds buttons for water and plant tips, etc 
   return isAuthenticated ? (
     <div className="min-h-screen w-screen bg-gradient-to-br from-pink-200 via-emerald-100 to-blue-200 p-6 flex items-center justify-center">
       <div className="flex flex-col items-center justify-center space-y-6 w-full">

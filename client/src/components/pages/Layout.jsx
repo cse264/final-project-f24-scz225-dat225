@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { NavigationMenu } from "@/components/ui/navigation-menu";
 import { Toaster } from "@/components/ui/toaster";
 
+//general layout of the home about and search pages
 export default function Layout() {
   const navItems = [
     { name: 'Home', href: '/home' },

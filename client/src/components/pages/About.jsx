@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function About() {
+export default function About() { //log in to the app and go straight to the about page
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
-    const token = localStorage.getItem("auth_token");
+    const token = localStorage.getItem("auth_token"); 
     if (!token) {
       navigate("/login");  
     } else {
       setIsAuthenticated(true); 
     }
-  }, [navigate]);
+  }, [navigate]); 
 
+  //about page lists basic information, our names, etc
   return isAuthenticated ? (
     <div className="flex flex-col items-center h-screen w-screen bg-gradient-to-br from-pink-200 via-emerald-100 to-blue-200 p-6">
       <h2 className="text-3xl font-bold text-center text-pink-400 mt-10">

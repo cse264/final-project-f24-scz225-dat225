@@ -4,7 +4,7 @@ import axios from 'axios'
 // Search bar get request
 export const addPlant = async (plant) => {
   try {
-    const res = await axios.post('http://localhost:8080/plants', plant);
+    const res = await axios.post('http://localhost:8080/plants', plant); //post request to add plant to local db 
     console.log('Plant added:', res.data);
   } catch (error) {
     console.error('Error adding plant:', error);
@@ -15,7 +15,7 @@ export const addPlant = async (plant) => {
 // Get Plants of User
 export const getPlants = async (userId) => {
     try {
-      const res = await axios.get('http://localhost:8080/plants', {
+      const res = await axios.get('http://localhost:8080/plants', { //get list of plants in users garden
         params: { userId }  
       });
       console.log('Plants:', res.data);
@@ -27,10 +27,10 @@ export const getPlants = async (userId) => {
 };
 
 //delete plants
-export const deletePlant = async (plantId) => {
+export const deletePlant = async (plantId) => { //pass in id
   try {
     console.log("Deleting Plant with ID:", plantId);
-    const res = await axios.delete(`http://localhost:8080/plants/${plantId}`);
+    const res = await axios.delete(`http://localhost:8080/plants/${plantId}`); //delete plant from users garden
     console.log('Plant Deleted:', res.data);
     return res.data.plant; 
   } catch (error) {
@@ -44,7 +44,7 @@ export const deletePlant = async (plantId) => {
 export const waterPlants = async (plantId) => {
   try {
     console.log("Watering Plant with ID:", plantId); // Debugging
-    const res = await axios.put('http://localhost:8080/plants/water', { plantId });
+    const res = await axios.put('http://localhost:8080/plants/water', { plantId }); //water the plant by id 
     console.log('Plant Watered:', res.data);
     return res.data.plant; 
   } catch (error) {
@@ -55,12 +55,7 @@ export const waterPlants = async (plantId) => {
 
 
 
-// Login
-
-
-// PUT Request for watering
-
-const plantTips = [
+const plantTips = [ //array of plant tips--> only available to premium users
   "Water deeply but infrequently to encourage strong root growth.",
   "Check the soil moisture before watering—if it's dry 1-2 inches deep, it's time to water.",
   "Use room-temperature water to avoid shocking your plants.",
@@ -164,6 +159,6 @@ const plantTips = [
 ];
 
 export default function getRandomPlantTip() {
-  const randomIndex = Math.floor(Math.random() * plantTips.length);
+  const randomIndex = Math.floor(Math.random() * plantTips.length); //randomly retrieve plant list from array 
   return plantTips[randomIndex];
 }
